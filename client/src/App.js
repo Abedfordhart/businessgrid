@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import BusinessCard from './Components/BusinessCard/BusinessCard.js'
+import axios from 'axios'
 import './App.css';
 
 class App extends Component {
+  state = {
+    businessData: {}
+  }
+
+  componentDidMount() {
+    axios.get('api/businessData')
+    .then(response => {
+      let businessData = response.data
+      this.setState({businessData: businessData})
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="card-container">
+          <BusinessCard className="business-card"/> 
+        </div>
       </div>
     );
   }

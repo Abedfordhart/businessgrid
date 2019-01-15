@@ -11,7 +11,7 @@ app.get('/api/businessData', (req, res) => {
   const options = {
     url: 'https://api.yelp.com/v3/businesses/search?categories=restaurants&location=sanfrancisco&limit=50',
     headers: {
-      'Authorization': 'Bearer 5PhACrZEOw4XW_8PBt8VxZTc7ZYkLpatvmNVJLKG60slfnAj_I3ajJfnriq2ZTM_hLSaDyFH2yIJ0by6TZqvwtCPqaRgDunoMdjFLtV4HpQtYYPWSG06nWa-JqDvW3Yx'
+      'Authorization': 'Bearer '
     }
   }
  

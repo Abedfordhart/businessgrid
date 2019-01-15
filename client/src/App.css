@@ -18,6 +18,17 @@
   color: white;
 }
 
+.ui.image {
+  height: 385px;
+  width: 290px;
+  object-fit: cover;
+
+}
+
+.ui.container {
+  margin-right: auto;
+}
+
 .App-link {
   color: #61dafb;
 }

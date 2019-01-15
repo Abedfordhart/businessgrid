@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BusinessCard from './Components/BusinessCard/BusinessCard.js'
 import axios from 'axios'
-import { Card } from 'semantic-ui-react'
+import { Card, Container } from 'semantic-ui-react'
 import './App.css';
 
 class App extends Component {
@@ -21,18 +21,25 @@ class App extends Component {
     console.log(this.state.businessData.length)
     return (
       <div className="App">
-        <Card.Group>
+        <Container fluid>
+        <Card.Group centered>
         {this.state.businessData.map((business, i) => {
           return (
             <BusinessCard 
               key={i}
               name={business.name}
-              rating={'test'}
-              city={'test'}
+              img={business.image_url}
+              category={business.categories[0].title}
+              reviews={business.review_count}
+              rating={business.rating}
+              price={business.price}
+              location={business.location.display_address}
+              phone={business.display_phone}
             /> 
           )
         })}
         </Card.Group>
+        </Container>
       </div>
     );
   }

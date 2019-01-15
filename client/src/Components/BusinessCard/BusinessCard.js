@@ -1,23 +1,20 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-
-const src = 'https://react.semantic-ui.com/images/wireframe/white-image.png'
+import { Card, Image, Rating } from 'semantic-ui-react'
 
 const BusinessCard = (props) => (
   <Card>
-    <Image src='/images/avatar/large/matthew.png' />
+    <Image src={props.img} />
     <Card.Content>
       <Card.Header>{props.name}</Card.Header>
       <Card.Meta>
-        <span className='date'>Joined in 2015</span>
+        <span className='date'>{props.category + ' ' + props.price}</span>
       </Card.Meta>
-      <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
+      <Card.Description>{props.location[0] + ' ' + props.location[1]}</Card.Description>
+      <Card.Description><a href={"phone:+" + props.phone}>{props.phone}</a></Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        22 Friends
-      </a>
+        <Rating icon='star' defaultRating={Math.round(props.rating)} maxRating={5} disabled />
+          {' ' + props.reviews} Reviews
     </Card.Content>
   </Card>
 )

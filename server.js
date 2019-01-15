@@ -15,7 +15,7 @@ app.get('/api/businessData', (req, res) => {
     }
   }
  
-  function getBusinesses(error, response, body) {
+  const getBusinesses = (error, response, body) => {
     if (!error && response.statusCode == 200) {
       const businessData = JSON.parse(body);
       res.send(businessData)

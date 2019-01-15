@@ -10,10 +10,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getBusinesses()
+  }
+
+  getBusinesses() {
     axios.get('api/businessData')
     .then(response => {
       let businessData = response.data.businesses
-      this.setState({businessData: businessData})
+      this.setState({businessData})
     })
   }
 
@@ -21,24 +25,24 @@ class App extends Component {
     return (
       <div className="App">
         <Container fluid>
-        <Card.Group centered>
-        {this.state.businessData.map((business, i) => {
-          return (
-            <BusinessCard 
-              link={business.url}
-              key={i}
-              name={business.name}
-              img={business.image_url}
-              category={business.categories[0].title}
-              reviews={business.review_count}
-              rating={business.rating}
-              price={business.price}
-              location={business.location.display_address}
-              phone={business.display_phone}
-            /> 
-          )
-        })}
-        </Card.Group>
+          <Card.Group centered>
+            {this.state.businessData.map((business, i) => {
+              return (
+                <BusinessCard 
+                  link={business.url}
+                  key={i}
+                  name={business.name}
+                  img={business.image_url}
+                  category={business.categories[0].title}
+                  reviews={business.review_count}
+                  rating={business.rating}
+                  price={business.price}
+                  location={business.location.display_address}
+                  phone={business.display_phone}
+                /> 
+              )
+            })}
+          </Card.Group>
         </Container>
       </div>
     );

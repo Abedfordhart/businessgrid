@@ -13,8 +13,8 @@ const BusinessCard = (props) => (
       <Card.Description>{props.phone}</Card.Description>
     </Card.Content>
     <Card.Content extra>
-        <Rating icon='star' defaultRating={Math.round(props.rating)} maxRating={5} disabled />
-          {' ' + props.reviews} Reviews
+      <Rating icon='star' defaultRating={Math.round(props.rating)} maxRating={5} disabled />
+      {' ' + props.reviews} Reviews
     </Card.Content>
   </Card>
 )

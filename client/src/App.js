@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.businessData.length)
     return (
       <div className="App">
         <Container fluid>
@@ -26,6 +25,7 @@ class App extends Component {
         {this.state.businessData.map((business, i) => {
           return (
             <BusinessCard 
+              link={business.url}
               key={i}
               name={business.name}
               img={business.image_url}
